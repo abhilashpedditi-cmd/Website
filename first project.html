@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Website</title>
+    <Style>
+        .title{
+            text-align: center;
+            margin: 20px 0;
+        }
+        body{
+            margin: 0;
+            font-family: Arial;
+            background: #f0f2f5;
+        }
+        .sidebar{
+            flex: 0 0 25%;
+            background: #222;
+            color: white;
+            padding: 15px;
+            height: 100vh;
+        }
+        .sidebar h2{
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sidebar h2:hover{
+            background: #555;
+        }
+        .active{
+            background:#ff9800;
+            color: white;
+        }
+        .content{
+            min-height: 400px;
+            flex: 0 0 45%;
+            background: white;
+            padding: 20px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .ads{
+            flex: 0 0 20%;
+            background: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-left: auto;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 20px;
+        }
+        .ticker{
+            background: black;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .ticker-text{
+            display: inline-block;
+            padding: 10px;
+            white-space: nowrap;
+            animation: scroll 10s linear infinite;
+        }
+        @keyframes scroll{
+            from{
+                transform: translateX(100%)
+            }
+            to{
+                transform: translateX(-100%);
+            }
+        
+        }
+        body{
+            margin: 0;
+            font-family: Arial;
+            padding-bottom: 50px;
+        }
+        h2{
+            margin-top: 0;
+        }
+        p{
+            line-height:1.6;
+        }
+        #n1{
+            display: block;
+        }
+        .news{
+            display: none;
+            animation: fade 0.5s ease-in;
+            max-width: 100%;
+        }
+        @keyframes fade{
+            from{
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        img{
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        h1{
+            font-size: 32px;
+        }
+        h2{
+            font-size: 20px;
+        }
+        
+    </style>
+    <script>
+        function setActive(element){
+            let items = document.querySelectorAll(".sidebar h2");
+
+            items.forEach(item=>item.classList.remove("active"));
+            element.classList.add("active");
+        }
+    </script>
+    <script>
+        function showNews(id){
+            let allNews = document.querySelectorAll(".news");
+
+            allNews.forEach(news => {
+                news.style.display = "none";
+            });
+
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+
+<h1 class="title">NEWS</h1>
+<div class="container">
+    <div class="sidebar">
+        <h2 class="active" onclick="showNews('n1');setActive(this)">Hyderabad Student Dies by Suicide.....</h2>
+        <h2 onclick="showNews('n2');setActive(this)">Bengaluru Family Courier Incident.....</h2>
+        <h2 onclick="showNews('n3');setActive(this)">US-Israel vs Iran War.....</h2>
+    </div>
+
+
+<!-- CENTER: News Content -->
+<!-- CENTER: News Content -->
+<div class="content">
+
+    <div id="n1" class="news">
+        <h2>Hyderabad Student Dies by Suicide</h2>
+        <img src="suicideimg.jpg">
+        <details>
+            <summary>Read More</summary>
+        <p>20-year-old woman in Hyderabad tragically took her own life shortly after her pet cat passed away. The young woman, a Bachelor of Science student, was deeply attached to her cat, and her family reported that she struggled to cope with the loss</p>
+        </details>
+    </div>
+
+    <div id="n2" class="news">
+        <h2>Bengaluru Family Courier Incident</h2>
+        <img src="bnglr.jpg">
+        <details>
+            <summary>Read More</summary>
+            <p>In a strange and unsettling incident, a family in Bengaluru attempted to send their elderly father to Mangaluru inside a gunny sack, leaving courier staff and bystanders stunned. The episode took place near Vinayaka Circle within the jurisdiction of the Vyalikaval Police Station......</p>
+        </details>
+    </div>
+
+    <div id="n3" class="news">
+        <h2>US-Israel vs Iran War</h2>
+        <img src="war.jpg">
+        <details>
+            <summary>Read More</summary>
+            <p>ARAD, Israel — Iran and its ally, the Lebanese militant group Hezbollah, stepped up their attacks on Israel on Sunday, launching strikes across the country after the United States and Iran threatened to widen their targets in the war in the Middle East, now in its fourth week.As Israel came under renewed fire, top Israeli leaders traveled to the southern town of Arad, one of two communities near a secretive nuclear research site struck by Iranian missiles late Saturday, wounding scores of people......</p>
+        </details>
+    </div>
+
+</div>
+
+<!-- RIGHT: Advertisement -->
+    <div class="ads">
+    <h2>Advertisement</h2>
+    
+    <p>🔥 Big Sale - 50% OFF</p>
+    <p>Fashion Store Near You</p>
+
+    <img src="sale.img" alt="image">
+    </div>
+<hr>
+<div class="ticker">
+    <div class="ticker-text">
+        🔥 Breaking News: Hyderabad student case | Bengaluru incident | US-Iran updates
+    </div>
+</div>
+</body>
+</html>

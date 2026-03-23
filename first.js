@@ -1,5 +1,5 @@
-for (i = 0; i < 2; i++) {
-      for (var j = 0; j < 3; j++) {
-          console.log("Hello");
-      }
-  }
+num = Math.random();
+neww = num * 10;
+console.log(num)
+
+console.log(Math.ceil(3.1))
